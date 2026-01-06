@@ -1,0 +1,269 @@
+openapi: 3.0.1
+info:
+  description: ""
+  title: 谷仓
+  version: 1.0.0
+servers:
+- url: /
+tags:
+- name: 基础资料与工具
+- name: 基础资料与工具/基础资料的获取
+paths:
+  /public_open/base_data/get_shipping_method:
+    post:
+      deprecated: false
+      description: ""
+      parameters:
+      - description: ""
+        example: "{{app-token-uat}}"
+        explode: false
+        in: header
+        name: app-token
+        required: false
+        schema:
+          default: "{{app-token-uat}}"
+          type: string
+        style: simple
+      - description: ""
+        example: "{{app-key-uat}}"
+        explode: false
+        in: header
+        name: app-key
+        required: false
+        schema:
+          default: "{{app-key-uat}}"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            examples: {}
+            schema:
+              $ref: '#/components/schemas/GetShippingMethodRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetShippingMethodResponse'
+          description: ""
+          x-apifox-name: 成功
+      security: []
+      summary: 获取物流产品
+      tags:
+      - 基础资料与工具/基础资料的获取
+      x-apifox-folder: 基础资料与工具/基础资料的获取
+      x-apifox-status: developing
+      x-run-in-apifox: https://apifox.com/web/project/7654497/apis/api-400120234-run
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+components:
+  schemas:
+    GetShippingMethodDataResponse:
+      example:
+        address_validation_enabled: 6
+        code: code
+        warehouse_code: warehouse_code
+        is_specify_arrival_time: 9
+        is_optional_board: 2
+        type: type
+        insurance_currency: insurance_currency
+        distributor_type: 1
+        is_insurance: 5
+        delivery_time_list:
+        - delivery_time_list
+        - delivery_time_list
+        is_signature: 7
+        is_truck: 3
+        name: name
+        sm_business_type: sm_business_type
+        sp_code: sp_code
+        insurance_range: insurance_range
+        is_ooh: 5
+        transport_mode: 2
+        name_en: name_en
+      properties:
+        address_validation_enabled:
+          description: 是否支持地址校验
+          type: integer
+        code:
+          description: 物流产品编码，大小写敏感，创建相关单据引用该代码时，请遵从系统提供的代码传入参数值
+          type: string
+        delivery_time_list:
+          description: 支持的到货时间段
+          items:
+            type: string
+          type: array
+        distributor_type:
+          description: 配送商类型
+          type: integer
+        insurance_currency:
+          description: 投保金额的币种信息
+          type: string
+        insurance_range:
+          description: 投保金额范围值
+          type: string
+        is_insurance:
+          description: 保险服务
+          type: integer
+        is_ooh:
+          description: 是否支持户外配送 0否 1是
+          type: integer
+        is_optional_board:
+          description: 是否打板 0否 1是
+          type: integer
+        is_signature:
+          description: 是否支持签名服务的增值服务
+          type: integer
+        is_specify_arrival_time:
+          description: 是否指定到货时间
+          type: integer
+        is_truck:
+          description: 是否卡派渠道
+          type: integer
+        name:
+          description: 物流产品中文名称
+          type: string
+        name_en:
+          description: 物流产品英文名称
+          type: string
+        sm_business_type:
+          description: 业务类型（旧的业务类型，不推荐对接）
+          type: string
+        sp_code:
+          description: 服务商代码
+          type: string
+        transport_mode:
+          description: 运输方式
+          type: integer
+        type:
+          description: 物流产品类型
+          type: string
+        warehouse_code:
+          description: 仓库代码
+          type: string
+      required:
+      - address_validation_enabled
+      - is_ooh
+      - is_optional_board
+      - is_signature
+      - is_truck
+      - sp_code
+      - type
+      - warehouse_code
+      type: object
+      x-apifox-orders:
+      - address_validation_enabled
+      - code
+      - delivery_time_list
+      - distributor_type
+      - insurance_currency
+      - insurance_range
+      - is_insurance
+      - is_ooh
+      - is_optional_board
+      - is_signature
+      - is_specify_arrival_time
+      - is_truck
+      - name
+      - name_en
+      - sm_business_type
+      - sp_code
+      - transport_mode
+      - type
+      - warehouse_code
+      x-apifox-ignore-properties: []
+      x-apifox-folder: ""
+    GetShippingMethodResponse:
+      example:
+        code: 0
+        data:
+        - address_validation_enabled: 6
+          code: code
+          warehouse_code: warehouse_code
+          is_specify_arrival_time: 9
+          is_optional_board: 2
+          type: type
+          insurance_currency: insurance_currency
+          distributor_type: 1
+          is_insurance: 5
+          delivery_time_list:
+          - delivery_time_list
+          - delivery_time_list
+          is_signature: 7
+          is_truck: 3
+          name: name
+          sm_business_type: sm_business_type
+          sp_code: sp_code
+          insurance_range: insurance_range
+          is_ooh: 5
+          transport_mode: 2
+          name_en: name_en
+        - address_validation_enabled: 6
+          code: code
+          warehouse_code: warehouse_code
+          is_specify_arrival_time: 9
+          is_optional_board: 2
+          type: type
+          insurance_currency: insurance_currency
+          distributor_type: 1
+          is_insurance: 5
+          delivery_time_list:
+          - delivery_time_list
+          - delivery_time_list
+          is_signature: 7
+          is_truck: 3
+          name: name
+          sm_business_type: sm_business_type
+          sp_code: sp_code
+          insurance_range: insurance_range
+          is_ooh: 5
+          transport_mode: 2
+          name_en: name_en
+        ask: ask
+        message: message
+      properties:
+        code:
+          type: integer
+        ask:
+          type: string
+        message:
+          type: string
+        data:
+          items:
+            $ref: '#/components/schemas/GetShippingMethodDataResponse'
+          type: array
+      required:
+      - ask
+      - code
+      - data
+      - message
+      type: object
+      x-apifox-orders:
+      - code
+      - ask
+      - message
+      - data
+      x-apifox-ignore-properties: []
+      x-apifox-folder: ""
+    GetShippingMethodRequest:
+      example:
+        is_ooh: 0
+        warehouseCode: warehouseCode
+      properties:
+        is_ooh:
+          description: 是否支持户外配送
+          type: integer
+        warehouseCode:
+          description: 尾程仓库代码
+          type: string
+      title: ""
+      type: object
+      x-apifox-orders:
+      - is_ooh
+      - warehouseCode
+      x-apifox-ignore-properties: []
+      x-apifox-folder: ""
+  securitySchemes: {}
+
